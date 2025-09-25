@@ -122,7 +122,7 @@ a:hover{color:var(--turquoise)}
 /* Mostrar el logo como fondo solo en pantallas anchas y ocultar la imagen inline para evitar duplicidad */
 @media (min-width:1000px){
   /* Logo extra grande como marca de agua en pantallas muy grandes */
-  .site-header::after{background-image:url("assets/images/logo-sin-fondo.png");background-position:left 80px center;background-size:1620px auto;opacity:0.09}
+  .site-header::after{background-image:url("/assets/images/logo-sin-fondo.png");background-position:left 80px center;background-size:1620px auto;opacity:0.09}
   .logo-img{display:none}
   .header-inner{position:relative;z-index:20;padding-left:585px}
 }
