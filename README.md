@@ -55,3 +55,26 @@ npm start
 3. Abre en el navegador: `http://localhost:3000`
 
 El endpoint `/api/contact` recibe POST con { name, contact, message } y responde con JSON. Es solo para desarrollo; integra un servicio real para producción.
+
+## Optimizar imágenes (WebP)
+
+Hay un script `scripts/optimize-images.sh` que convierte JPG/PNG a WebP usando `cwebp` de libwebp.
+
+Instalación (macOS):
+
+```bash
+brew install webp
+```
+
+Generar webp:
+
+```bash
+cd "/Users/alejandro/Desktop/NEW MEDICAL"
+chmod +x scripts/optimize-images.sh
+./scripts/optimize-images.sh
+git add assets/images/*.webp
+git commit -m "Generar WebP optimizadas"
+git push
+```
+
+En `index.html` las imágenes principales ya usan `<picture>` con fallback a JPG/PNG y `loading="lazy"`.
