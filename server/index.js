@@ -13,11 +13,55 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Servir archivos estáticos desde la carpeta raíz del proyecto
 app.use(express.static(path.join(__dirname, '..')));
 
-// Endpoint de prueba para el formulario
-app.post('/api/contact', (req, res) => {
-  console.log('Contacto recibido:', req.body);
-  // Aquí podrías integrar un servicio real (email, CRM, etc.)
-  res.json({ ok: true, message: 'Recibido en servidor de desarrollo' });
+// Envío real del formulario: prefer SendGrid si está configurado, sino SMTP (nodemailer)
+const sendEmail = async ({ name, contact, message }) => {
+  if(process.env.SENDGRID_API_KEY){
+    // SendGrid
+    const sgMail = require('@sendgrid/mail');
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const msg = {
+      to: process.env.CONTACT_TO_EMAIL || 'info@newmedicalgroup.example',
+      from: process.env.EMAIL_FROM || 'no-reply@newmedicalgroup.com.co',
+      subject: `Nuevo contacto: ${name}`,
+      text: `Nombre: ${name}\nContacto: ${contact}\nMensaje: ${message}`,
+    };
+    await sgMail.send(msg);
+    return { ok: true, provider: 'sendgrid' };
+  }
+
+  if(process.env.SMTP_HOST){
+    // SMTP via nodemailer
+    const nodemailer = require('nodemailer');
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT,10) : 587,
+      secure: process.env.SMTP_SECURE === 'true',
+      auth: process.env.SMTP_USER ? { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS } : undefined,
+    });
+    const info = await transporter.sendMail({
+      from: process.env.EMAIL_FROM || 'no-reply@newmedicalgroup.com.co',
+      to: process.env.CONTACT_TO_EMAIL || 'info@newmedicalgroup.example',
+      subject: `Nuevo contacto: ${name}`,
+      text: `Nombre: ${name}\nContacto: ${contact}\nMensaje: ${message}`,
+    });
+    return { ok: true, provider: 'smtp', info };
+  }
+
+  // Si no hay proveedor configurado, solo loggear
+  console.log('Contacto recibido (no enviado):', { name, contact, message });
+  return { ok: true, provider: 'log' };
+};
+
+app.post('/api/contact', async (req, res) => {
+  try{
+    const { name, contact, message } = req.body || {};
+    if(!name || !contact) return res.status(400).json({ ok: false, message: 'Faltan campos requeridos' });
+    const result = await sendEmail({ name, contact, message });
+    return res.json({ ok: true, message: 'Solicitud recibida', provider: result.provider });
+  }catch(err){
+    console.error('Error enviando contacto:', err);
+    return res.status(500).json({ ok: false, message: 'Error interno' });
+  }
 });
 
 app.listen(PORT, () => {

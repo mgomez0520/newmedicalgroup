@@ -78,3 +78,20 @@ git push
 ```
 
 En `index.html` las imágenes principales ya usan `<picture>` con fallback a JPG/PNG y `loading="lazy"`.
+
+## Configurar envío de formularios (SendGrid o SMTP)
+
+El servidor acepta dos métodos para enviar emails desde `/api/contact`:
+
+- SendGrid (preferido): configura `SENDGRID_API_KEY` en las variables de entorno y opcionalmente `CONTACT_TO_EMAIL` y `EMAIL_FROM`.
+- SMTP (fallback): configura `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_SECURE`.
+
+En Render: ve a tu servicio -> Environment -> Environment Variables y añade las variables necesarias (no subas claves al repo).
+
+Ejemplo de variables (Render):
+
+SENDGRID_API_KEY = <tu_key>
+CONTACT_TO_EMAIL = contact@newmedicalgroup.com.co
+EMAIL_FROM = no-reply@newmedicalgroup.com.co
+
+Si no se configura ningún proveedor el servidor solo registrará los mensajes en logs.
