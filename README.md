@@ -91,7 +91,7 @@ En Render: ve a tu servicio -> Environment -> Environment Variables y añade las
 Ejemplo de variables (Render):
 
 SENDGRID_API_KEY = <tu_key>
-CONTACT_TO_EMAIL = contact@newmedicalgroup.com.co
-EMAIL_FROM = no-reply@newmedicalgroup.com.co
+CONTACT_TO_EMAIL = Newmedicalgroup2021@gmail.com
+EMAIL_FROM = Newmedicalgroup2021@gmail.com
 
 Si no se configura ningún proveedor el servidor solo registrará los mensajes en logs.
