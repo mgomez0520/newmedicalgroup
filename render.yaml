@@ -3,7 +3,7 @@ services:
     name: new-medical-site
     env: node
     plan: free
-  repo: https://github.com/mgomez0520/newmedicalgroup.git
+    repo: https://github.com/mgomez0520/newmedicalgroup.git
     branch: main
-  buildCommand: './server/install-rust.sh || true && npm install'
-    startCommand: 'npm start'
+    buildCommand: ./server/install-rust.sh || true && npm install
+    startCommand: npm start

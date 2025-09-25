@@ -34,6 +34,7 @@
         <div class="logo">
           <picture>
             <source type="image/webp" srcset="assets/images/LOGO%20SIN%20FONDO.webp">
+            <source type="image/png" srcset="assets/images/LOGO%20SIN%20FONDO.png">
             <img src="assets/images/LOGO SIN FONDO.png" alt="New Medical Group" class="logo-img" loading="lazy" decoding="async">
           </picture>
           <span class="sr-only">New Medical Group — Integrador de servicios de salud</span>
@@ -63,6 +64,7 @@
         <div class="hero-image">
           <picture>
             <source type="image/webp" srcset="assets/images/ambulance-hero.webp">
+            <source type="image/jpeg" srcset="assets/images/ambulance-hero.jpg">
             <img src="assets/images/ambulance-hero.jpg" alt="Ilustración de ambulancia — New Medical Group" class="hero-art" loading="lazy" decoding="async" width="1200" height="800" />
           </picture>
         </div>
@@ -117,7 +119,7 @@
             <button type="submit" class="btn btn-primary">Enviar solicitud</button>
             <a class="btn btn-outline" href="mailto:Newmedicalgroup2021@gmail.com">Enviar por correo</a>
           </div>
-          <p class="form-note">Nota: Este formulario no envía datos a servidor. Sustituye el atributo action por tu endpoint o integra un servicio de formularios.</p>
+          <p class="form-note">Nota: Este formulario envía datos a <code>/api/contact</code>. En producción configura las variables de entorno (SENDGRID_API_KEY o SMTP_*) para que los mensajes se envíen por correo.</p>
         </form>
         <div id="formResult" class="form-result" aria-live="polite"></div>
       </div>
