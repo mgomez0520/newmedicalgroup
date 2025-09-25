@@ -59,6 +59,10 @@ body::before{
 .whatsapp-link .icon-whatsapp{width:22px;height:22px;display:block}
 .whatsapp-link .label{font-weight:600;color:var(--white);font-size:14px}
 
+@media (max-width:699px){
+  .whatsapp-link .label{display:none}
+}
+
 /* Floating WhatsApp button */
 .whatsapp-float{position:fixed;right:18px;bottom:18px;z-index:80;background:linear-gradient(90deg,#25D366,#1EBE57);width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(37,211,102,0.18)}
 .whatsapp-float img{width:36px;height:36px}
