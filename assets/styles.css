@@ -73,6 +73,10 @@ body::before{
 
 @media (max-width:699px){
   .whatsapp-link .label{display:none}
+  /* Hide icon-box labels on small screens to avoid overlap */
+  .icon-box .label{display:none}
+  /* reduce icon-box size on small screens */
+  .icon-box{width:44px;height:44px;padding:8px 10px}
 }
 
 /* Floating WhatsApp button */
