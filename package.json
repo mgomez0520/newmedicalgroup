@@ -4,6 +4,7 @@
   "description": "Sitio estático para New Medical Group con servidor de prueba para formulario",
   "main": "server/index.js",
   "scripts": {
+    "preinstall": "node -e \"const {execSync}=require('child_process');try{execSync('cargo --version',{stdio:'ignore'})}catch(e){console.log('cargo no encontrado, skipping.');}\" || true",
     "start": "node server/index.js",
     "dev": "NODE_ENV=development node server/index.js"
   },
