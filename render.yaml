@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: new-medical-site
+    env: node
+    plan: free
+  repo: https://github.com/mgomez0520/newmedicalgroup.git
+    branch: main
+    buildCommand: 'npm install'
+    startCommand: 'npm start'

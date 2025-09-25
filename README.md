@@ -1,0 +1,57 @@
+# Sitio web — New Medical Group
+
+Estructura mínima generada:
+
+- `index.html` — página principal
+- `assets/styles.css` — estilos
+- `assets/script.js` — pequeñas interacciones (formulario falso, año dinámico)
+
+Cómo usar
+
+1. Abrir `index.html` en un navegador.
+2. Personalizar textos, números de teléfono, logo e imágenes.
+3. Para enviar el formulario, integrar un backend o servicio (Formspree, Netlify Forms, etc.).
+
+Siguientes pasos sugeridos
+
+- Añadir imágenes reales y logo.
+- Conectar un endpoint para recibir solicitudes.
+- Optimizar SEO y accesibilidad.
+
+Identidad visual (colores y tipografías)
+
+- Colores principales (HEX):
+	- Blanco: `#FDFDFD`
+	- Verde brillante: `#2BA763`
+	- Verde oliva suave: `#7E9D54`
+	- Azul turquesa: `#0594C4`
+	- Azul más intenso (degradado): `#006EB3`
+	- Negro/café oscuro (texto): `#372D2A`
+
+- Tipografías:
+	- Nombre de marca (`New Medical Group`): tipografía script/caligráfica (similar a `Great Vibes`, `Allura` o `Great Vibes`).
+	- Texto secundario (`INTEGRADOR DE SERVICIOS DE SALUD`): tipografía sans serif recta (similar a `Montserrat Light`, `Arial` o `Helvetica`).
+
+Estas variables ya se añadieron a `assets/styles.css` y la página incluye la carga de `Great Vibes` y `Montserrat` desde Google Fonts para facilitar la personalización.
+
+## Servidor de desarrollo (opcional)
+
+He incluido un servidor Express mínimo en `server/index.js` y un `package.json` para probar el envío del formulario localmente.
+
+Pasos:
+
+1. Instala dependencias:
+
+```bash
+npm install
+```
+
+2. Inicia el servidor:
+
+```bash
+npm start
+```
+
+3. Abre en el navegador: `http://localhost:3000`
+
+El endpoint `/api/contact` recibe POST con { name, contact, message } y responde con JSON. Es solo para desarrollo; integra un servicio real para producción.

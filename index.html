@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>New Medical Group — Ambulancias</title>
+  <meta name="description" content="Servicio de ambulancias 24/7 — New Medical Group — Traslados, urgencias y soporte médico.">
+  <!-- Tipografías de marca: script elegante para nombre y Montserrat para textos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">
+          <img src="assets/images/LOGO SIN FONDO.png" alt="New Medical Group" class="logo-img">
+          <span class="sr-only">New Medical Group — Integrador de servicios de salud</span>
+        </div>
+      </div>
+      <div class="contact-quick">
+        <a href="tel:+573217191999" class="phone">+57 321 719 1999</a>
+        <a href="#contact" class="btn btn-primary">Solicitar servicio</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h2>New Medical Group — Atención y traslado médico inmediato</h2>
+          <p>Equipo profesional. Flota moderna. Cobertura 24 horas para urgencias, traslados y eventos.</p>
+          <div class="hero-cta">
+            <a href="tel:+573217191999" class="btn btn-cta">Llamar ahora</a>
+            <a href="#services" class="btn btn-outline">Ver servicios</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/images/ambulance-hero.jpg" alt="Ilustración de ambulancia — New Medical Group" class="hero-art" />
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+  <h3>Servicios — New Medical Group</h3>
+        <div class="cards">
+          <article class="card">
+            <h4>Urgencias 24/7</h4>
+            <p>Atención inmediata en accidente o emergencia médica.</p>
+          </article>
+          <article class="card">
+            <h4>Traslados programados</h4>
+            <p>Traslados entre centros médicos y transporte de pacientes.</p>
+          </article>
+          <article class="card">
+            <h4>Soporte en eventos</h4>
+            <p>Servicio médico en eventos deportivos y sociales.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container">
+        <h3>Sobre nosotros</h3>
+        <p class="lead">En New Medical Group sabemos que cada minuto cuenta.</p>
+  <p>Por eso ofrecemos el servicio de ambulancias de New Medical Group, con personal altamente titulado, comprometido con la vida y respaldado por equipamiento médico de última generación.</p>
+        <p>Nuestra misión es clara: garantizar la seguridad y bienestar de cada paciente, actuando con rapidez, precisión y humanidad en cada traslado.</p>
+        <p>Confiar en nosotros es contar con un aliado en los momentos más críticos, donde la experiencia, la preparación y la tecnología se unen para marcar la diferencia.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+  <h3>Contacto — New Medical Group</h3>
+  <p>Teléfono de emergencias: <strong><a href="tel:+573217191999">+57 321 719 1999</a></strong></p>
+  <form id="contactForm" class="contact-form" data-endpoint="/api/contact">
+          <label>Nombre
+            <input type="text" name="name" id="name" required>
+          </label>
+          <label>Teléfono o email
+            <input type="text" name="contact" id="contactInput" required>
+          </label>
+          <label>Mensaje / Dirección (opcional)
+            <textarea name="message" id="message"></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+            <a class="btn btn-outline" href="mailto:info@newmedicalgroup.example">Enviar por correo</a>
+          </div>
+          <p class="form-note">Nota: Este formulario no envía datos a servidor. Sustituye el atributo action por tu endpoint o integra un servicio de formularios.</p>
+        </form>
+        <div id="formResult" class="form-result" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+  <p>© <span id="year"></span> New Medical Group — Todos los derechos reservados.</p>
+  <p class="small">Dirección: Calle ejemplo 1, Ciudad. Email: <a href="mailto:info@newmedicalgroup.example">info@newmedicalgroup.example</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
