@@ -42,8 +42,8 @@ body::before{
 .header-inner{display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;gap:12px;align-items:center}
 .logo{display:flex;align-items:center}
-.logo .emblem{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--turquoise),var(--blue-strong));display:flex;align-items:center;justify-content:center;color:var(--white);font-size:26px;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
-.logo-img{width:56px;height:56px;object-fit:contain;border-radius:8px}
+.logo .emblem{width:72px;height:72px;border-radius:10px;background:linear-gradient(135deg,var(--turquoise),var(--blue-strong));display:flex;align-items:center;justify-content:center;color:var(--white);font-size:32px;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+.logo-img{width:72px;height:72px;object-fit:contain;border-radius:10px}
 .company-name{font-size:20px;margin-bottom:4px}
 .company-name .script{font-family:'Great Vibes', cursive;font-size:26px;color:var(--dark);display:inline-block}
 .tagline{font-size:13px;color:var(--muted);letter-spacing:0.6px}
@@ -126,10 +126,10 @@ a:hover{color:var(--turquoise)}
 
 /* Mostrar el logo como fondo solo en pantallas anchas y ocultar la imagen inline para evitar duplicidad */
 @media (min-width:1000px){
-  /* Logo extra grande como marca de agua en pantallas muy grandes */
-  .site-header::after{background-image:url("/assets/images/logo-sin-fondo.png");background-position:left 80px center;background-size:1620px auto;opacity:0.09}
-  .logo-img{display:none}
-  .header-inner{position:relative;z-index:20;padding-left:585px}
+  /* Mostrar logo grande en pantallas anchas; marca de agua más sutil */
+  .site-header::after{background-image:url("/assets/images/logo-sin-fondo.png");background-position:left 80px center;background-size:900px auto;opacity:0.03}
+  .logo-img{display:block;width:220px;height:220px;border-radius:14px}
+  .header-inner{position:relative;z-index:20;padding-left:320px}
 }
 
 /* En móvil mantenemos el logo inline visible y más pequeño */
@@ -139,7 +139,7 @@ a:hover{color:var(--turquoise)}
 }
 
 /* Logo image: si es PNG con transparencia, no forzar fondo */
-.logo-img{width:140px;height:140px;object-fit:contain;border-radius:12px;background:transparent;display:block}
+.logo-img{width:220px;height:220px;object-fit:contain;border-radius:12px;background:transparent;display:block}
 .brand{gap:18px;align-items:center}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .brand{align-items:center}
